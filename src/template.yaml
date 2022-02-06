@@ -1,0 +1,67 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Globals:
+  Function:
+    Timeout: 3
+Parameters:
+  DomainName:
+    Type: String
+    Default: steam-tags.kaotue.com
+  SteamApiKey:
+    Type: String
+    Default: defaultsteamapikeyvalue
+  SteamId:
+    Type: String
+    Default: defaultsteamidvalue
+Resources:
+  SteamYourTagsApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: steam-yourtags-api
+      CodeUri: src/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures: [x86_64]
+      Timeout: 60
+      MemorySize: 1024
+      Environment:
+        Variables:
+          STEAM_API_KEY: !Ref SteamApiKey
+          STEAM_ID: !Ref SteamId
+      Events:
+        ApiRoot:
+          Type: Api
+          Properties:
+            Path: '/'
+            Method: ANY
+            RestApiId: !Ref SteamYourTagsApi
+        ApiProxy:
+          Type: Api
+          Properties:
+            Path: '/{proxy+}'
+            Method: ANY
+            RestApiId: !Ref SteamYourTagsApi
+  SteamYourTagsApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      OpenApiVersion: 3.0.2
+      Name: steam-yourtags-api
+  SteamYourTagsApiGatewaBasePathMapping:
+    Type: AWS::ApiGatewayV2::ApiMapping
+    Properties:
+      DomainName: !Ref DomainName
+      ApiId: !Ref SteamYourTagsApi
+      Stage: !Ref SteamYourTagsApi.Stage
+Outputs:
+  SteamYourTagsApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    Value: !Sub "https://${DomainName}/"
+  SteamYourTagsApiFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt SteamYourTagsApiFunction.Arn
+  SteamYourTagsApiFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt SteamYourTagsApiFunctionRole.Arn
+    

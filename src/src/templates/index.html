@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes">
+<title>Steam YourTags</title>
+<script type="text/javascript">
+function download() {
+  var text = document.getElementById("inputSteamid");
+  var language = "";
+  if (document.getElementById("language_en").checked) {
+    language = "en";
+  } else if (document.getElementById("language_ja").checked) {
+    language = "ja";
+  }
+  parameters = "steamid=" + text.value + "&language=" + language;
+  location.href = "/yourtags?" + parameters
+}
+</script>
+<style type="text/css">
+html {
+  font-size: 28px;
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans', 'Meiryo';
+}
+body *{
+  text-align: center;
+}
+input[type="text"] {
+  height: 80px;
+  width: 90%;
+  font-size: 160%;
+}
+::placeholder {
+  font-size: 50%;
+}
+</style>
+</head>
+
+<body>
+<h1>Steam YourTags</h1>
+<div>
+  <input id="inputSteamid" type="text" pattern="[^\x20-\x7E]*" placeholder="input steamid">
+</div>
+<div>
+  <p>
+    <input type="radio" id="language_en" name="language" value="en" checked><label for="language_en"> English</label>
+    <input type="radio" id="language_ja" name="language" value="ja"><label for="language_ja"> Japanese</label>
+  </p>
+</div>
+<div>
+  <a id="downloadLink" href="javascript:download()">DOWNLOAD</a><br/>
+</div>
+</body>
+</html>

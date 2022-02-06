@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600">
+<style>text{font-family:'Droid Sans Mono';font-weight:normal;font-style:normal;}</style>
+<rect width="100%" height="100%" style="fill:black"></rect>
+<text transform="translate(295,546)" font-size="120" style="fill:rgb(56, 185, 119)">Singleplayer</text>
+<text transform="translate(212,285)" font-size="118" style="fill:rgb(47, 108, 142)">Action</text>
+<text transform="translate(545,107)" font-size="116" style="fill:rgb(35, 137, 142)">Adventure</text>
+<text transform="translate(85,382)" font-size="109" style="fill:rgb(72, 27, 109)">op</text>
+<text transform="translate(253,363)" font-size="100" style="fill:rgb(71, 47, 125)">Atmospheric</text>
+<text transform="translate(92,78)" font-size="94" style="fill:rgb(53, 95, 141)">Shooter</text>
+<text transform="translate(581,178)" font-size="92" style="fill:rgb(170, 220, 50)">Multiplayer</text>
+<text transform="translate(416,440)" font-size="70" style="fill:rgb(34, 140, 141)">GreatSoundtrack</text>
+<text transform="translate(889,252)" font-size="68" style="fill:rgb(69, 4, 87)">FPS</text>
+<text transform="translate(97,143)" font-size="68" style="fill:rgb(63, 188, 115)">Survival</text>
+<text transform="translate(970,323)" font-size="66" style="fill:rgb(41, 122, 142)">First</text>
+<text transform="translate(66,421) rotate(-90)" font-size="66" style="fill:rgb(72, 24, 106)">Person</text>
+<text transform="translate(797,254)" font-size="66" style="fill:rgb(31, 153, 138)">Co</text>
+<text transform="translate(79,570)" font-size="64" style="fill:rgb(46, 179, 124)">Indie</text>
+<text transform="translate(132,188)" font-size="58" style="fill:rgb(63, 188, 115)">Difficult</text>
+<text transform="translate(75,249)" font-size="56" style="fill:rgb(88, 199, 101)">Sci</text>
+<text transform="translate(1061,241)" font-size="56" style="fill:rgb(181, 222, 43)">fi</text>
+<text transform="translate(1,462)" font-size="55" style="fill:rgb(72, 193, 110)">StoryRich</text>
+<text transform="translate(1107,424)" font-size="55" style="fill:rgb(57, 85, 140)">2D</text>
+<text transform="translate(1003,364)" font-size="55" style="fill:rgb(48, 106, 142)">RPG</text>
+<text transform="translate(223,404)" font-size="53" style="fill:rgb(234, 229, 26)">Horror</text>
+<text transform="translate(633,248)" font-size="51" style="fill:rgb(92, 200, 99)">Valve</text>
+<text transform="translate(6,503)" font-size="37" style="fill:rgb(30, 155, 138)">PixelGraphics</text>
+<text transform="translate(634,298)" font-size="35" style="fill:rgb(213, 226, 26)">Moddable</text>
+<text transform="translate(270,577)" font-size="35" style="fill:rgb(53, 95, 141)">ReplayValue</text>
+<text transform="translate(990,576)" font-size="35" style="fill:rgb(39, 126, 142)">OpenWorld</text>
+<text transform="translate(760,584)" font-size="33" style="fill:rgb(72, 31, 112)">Zombies</text>
+<text transform="translate(684,28)" font-size="33" style="fill:rgb(72, 33, 115)">Roguelike</text>
+<text transform="translate(1004,26)" font-size="33" style="fill:rgb(155, 217, 60)">Roguelite</text>
+<text transform="translate(636,471)" font-size="31" style="fill:rgb(173, 220, 48)">OnlineCo</text>
+<text transform="translate(1080,460)" font-size="31" style="fill:rgb(70, 48, 126)">Puzzle</text>
+<text transform="translate(848,470)" font-size="31" style="fill:rgb(34, 141, 141)">PermaDeath</text>
+<text transform="translate(456,158)" font-size="29" style="fill:rgb(32, 163, 134)">Classic</text>
+<text transform="translate(831,286)" font-size="29" style="fill:rgb(63, 71, 136)">Strategy</text>
+<text transform="translate(606,570)" font-size="29" style="fill:rgb(56, 185, 119)">Sandbox</text>
+<text transform="translate(900,341)" font-size="29" style="fill:rgb(54, 92, 141)">Post</text>
+<text transform="translate(76,307)" font-size="29" style="fill:rgb(170, 220, 50)">apocalyptic</text>
+<text transform="translate(47,171) rotate(-90)" font-size="29" style="fill:rgb(59, 81, 139)">Platformer</text>
+<text transform="translate(1191,376) rotate(-90)" font-size="29" style="fill:rgb(31, 161, 135)">SurvivalHorror</text>
+<text transform="translate(593,201)" font-size="29" style="fill:rgb(218, 227, 25)">ThirdPerson</text>
+<text transform="translate(348,436)" font-size="29" style="fill:rgb(39, 127, 142)">Top</text>
+<text transform="translate(915,392)" font-size="27" style="fill:rgb(162, 218, 55)">PvP</text>
+<text transform="translate(1070,262)" font-size="27" style="fill:rgb(36, 170, 131)">Based</text>
+<text transform="translate(419,465)" font-size="27" style="fill:rgb(124, 210, 80)">Simulation</text>
+<text transform="translate(429,122)" font-size="27" style="fill:rgb(54, 92, 141)">Physics</text>
+<text transform="translate(635,381)" font-size="22" style="fill:rgb(234, 229, 26)">ProceduralGeneration</text>
+<text transform="translate(17,588)" font-size="22" style="fill:rgb(63, 71, 136)">Exploration</text>
+<text transform="translate(555,592)" font-size="22" style="fill:rgb(44, 114, 142)">Third</text>
+<text transform="translate(396,20)" font-size="22" style="fill:rgb(137, 213, 72)">PersonShooter</text>
+<text transform="translate(1049,310) rotate(-90)" font-size="20" style="fill:rgb(31, 152, 139)">Aliens</text>
+<text transform="translate(16,379) rotate(-90)" font-size="20" style="fill:rgb(115, 208, 86)">SilentProtagonist</text>
+<text transform="translate(87,415)" font-size="20" style="fill:rgb(189, 223, 38)">Gore</text>
+<text transform="translate(1193,120) rotate(-90)" font-size="20" style="fill:rgb(34, 141, 141)">Retro</text>
+<text transform="translate(1123,204)" font-size="20" style="fill:rgb(90, 200, 100)">Team</text>
+<text transform="translate(30,544)" font-size="20" style="fill:rgb(45, 113, 142)">Funny</text>
+<text transform="translate(94,267)" font-size="20" style="fill:rgb(181, 222, 43)">Comedy</text>
+<text transform="translate(84,205) rotate(-90)" font-size="20" style="fill:rgb(72, 37, 118)">FemaleProtagonist</text>
+<text transform="translate(441,381)" font-size="20" style="fill:rgb(61, 77, 138)">Addictive</text>
+<text transform="translate(264,209)" font-size="20" style="fill:rgb(82, 197, 105)">LocalCo</text>
+<text transform="translate(298,448)" font-size="20" style="fill:rgb(54, 92, 141)">Dark</text>
+<text transform="translate(168,16)" font-size="19" style="fill:rgb(56, 185, 119)">ActionRoguelike</text>
+<text transform="translate(182,220)" font-size="19" style="fill:rgb(70, 48, 126)">2013</text>
+<text transform="translate(855,153) rotate(-90)" font-size="19" style="fill:rgb(112, 207, 87)">2016</text>
+<text transform="translate(496,301)" font-size="17" style="fill:rgb(38, 173, 129)">Tactical</text>
+<text transform="translate(640,591)" font-size="17" style="fill:rgb(80, 196, 106)">Competitive</text>
+<text transform="translate(985,120)" font-size="15" style="fill:rgb(50, 182, 122)">MassivelyMultiplayer</text>
+<text transform="translate(1061,592)" font-size="15" style="fill:rgb(205, 225, 29)">Dystopian</text>
+<text transform="translate(755,267)" font-size="15" style="fill:rgb(37, 132, 142)">Short</text>
+<text transform="translate(1189,575) rotate(-90)" font-size="15" style="fill:rgb(221, 227, 24)">FreetoPlay</text>
+<text transform="translate(1081,473)" font-size="15" style="fill:rgb(210, 226, 27)">Music</text>
+<text transform="translate(200,201)" font-size="15" style="fill:rgb(33, 144, 141)">2011</text>
+<text transform="translate(141,91)" font-size="15" style="fill:rgb(72, 40, 120)">DungeonCrawler</text>
+<text transform="translate(20,515)" font-size="15" style="fill:rgb(72, 35, 116)">BulletHell</text>
+<text transform="translate(387,590)" font-size="15" style="fill:rgb(40, 124, 142)">PsychologicalHorror</text>
+<text transform="translate(879,28)" font-size="15" style="fill:rgb(192, 223, 37)">Cute</text>
+<text transform="translate(475,89)" font-size="15" style="fill:rgb(31, 161, 136)">2015</text>
+<text transform="translate(1035,385)" font-size="15" style="fill:rgb(48, 106, 142)">Fantasy</text>
+<text transform="translate(326,246)" font-size="13" style="fill:rgb(194, 223, 35)">2004</text>
+<text transform="translate(222,592)" font-size="13" style="fill:rgb(42, 120, 142)">Building</text>
+<text transform="translate(472,67)" font-size="13" style="fill:rgb(36, 135, 142)">Mod</text>
+<text transform="translate(565,193)" font-size="13" style="fill:rgb(165, 219, 54)">2006</text>
+<text transform="translate(936,194)" font-size="13" style="fill:rgb(71, 46, 124)">Episodic</text>
+<text transform="translate(916,585)" font-size="13" style="fill:rgb(68, 191, 112)">Cinematic</text>
+<text transform="translate(57,164) rotate(-90)" font-size="13" style="fill:rgb(181, 222, 43)">PuzzlePlatformer</text>
+<text transform="translate(502,169)" font-size="13" style="fill:rgb(37, 133, 142)">Rhythm</text>
+<text transform="translate(922,305)" font-size="13" style="fill:rgb(30, 157, 137)">Casual</text>
+<text transform="translate(469,210)" font-size="13" style="fill:rgb(170, 220, 50)">LocalMultiplayer</text>
+<text transform="translate(855,301)" font-size="13" style="fill:rgb(37, 172, 130)">Stealth</text>
+<text transform="translate(364,520)" font-size="13" style="fill:rgb(202, 225, 31)">2010</text>
+<text transform="translate(482,184)" font-size="13" style="fill:rgb(71, 14, 97)">Beautiful</text>
+<text transform="translate(765,38)" font-size="13" style="fill:rgb(197, 224, 33)">Metroidvania</text>
+<text transform="translate(12,112) rotate(-90)" font-size="13" style="fill:rgb(147, 215, 65)">Crafting</text>
+<text transform="translate(499,64)" font-size="13" style="fill:rgb(46, 111, 142)">Mystery</text>
+<text transform="translate(946,33)" font-size="13" style="fill:rgb(66, 64, 134)">2012</text>
+<text transform="translate(306,93)" font-size="13" style="fill:rgb(160, 218, 57)">2014</text>
+<text transform="translate(264,524)" font-size="13" style="fill:rgb(52, 96, 141)">Magic</text>
+<text transform="translate(796,192)" font-size="11" style="fill:rgb(31, 151, 139)">Military</text>
+<text transform="translate(422,118) rotate(-90)" font-size="11" style="fill:rgb(56, 185, 119)">War</text>
+<text transform="translate(917,362)" font-size="11" style="fill:rgb(30, 155, 138)">Futuristic</text>
+<text transform="translate(101,275)" font-size="11" style="fill:rgb(67, 62, 133)">Fast</text>
+<text transform="translate(83,284)" font-size="11" style="fill:rgb(226, 228, 24)">Paced</text>
+<text transform="translate(877,11)" font-size="11" style="fill:rgb(49, 181, 123)">3DPlatformer</text>
+<text transform="translate(596,26)" font-size="11" style="fill:rgb(58, 84, 140)">Science</text>
+<text transform="translate(780,592)" font-size="11" style="fill:rgb(31, 152, 139)">DarkHumor</text>
+<text transform="translate(393,199)" font-size="11" style="fill:rgb(72, 26, 108)">2007</text>
+<text transform="translate(431,473)" font-size="11" style="fill:rgb(70, 50, 126)">BasedProceduralGeneration</text>
+<text transform="translate(666,258)" font-size="11" style="fill:rgb(66, 65, 134)">Arcade</text>
+<text transform="translate(307,254)" font-size="11" style="fill:rgb(56, 89, 140)">Colorful</text>
+<text transform="translate(1066,443) rotate(-90)" font-size="11" style="fill:rgb(35, 169, 131)">Relaxing</text>
+<text transform="translate(980,264)" font-size="11" style="fill:rgb(229, 228, 25)">2008</text>
+<text transform="translate(479,40)" font-size="11" style="fill:rgb(37, 171, 130)">Gaming</text>
+<text transform="translate(357,302)" font-size="11" style="fill:rgb(57, 85, 140)">BohemiaInteractive</text>
+<text transform="translate(1105,333)" font-size="11" style="fill:rgb(31, 150, 139)">Realistic</text>
+<text transform="translate(418,263)" font-size="11" style="fill:rgb(72, 23, 105)">Space</text>
+<text transform="translate(456,394)" font-size="10" style="fill:rgb(84, 197, 104)">OpenWorldSurvivalCraft</text>
+<text transform="translate(1052,271)" font-size="10" style="fill:rgb(68, 1, 84)">RemedyEntertainment</text>
+<text transform="translate(866,592)" font-size="10" style="fill:rgb(66, 190, 113)">Thriller</text>
+<text transform="translate(12,562)" font-size="10" style="fill:rgb(234, 229, 26)">Supernatural</text>
+<text transform="translate(179,411)" font-size="10" style="fill:rgb(58, 83, 139)">Controller</text>
+<text transform="translate(857,554)" font-size="10" style="fill:rgb(147, 215, 65)">WalkingSimulator</text>
+<text transform="translate(111,519)" font-size="10" style="fill:rgb(221, 227, 24)">DownShooter</text>
+<text transform="translate(910,263)" font-size="10" style="fill:rgb(68, 57, 131)">EarlyAccess</text>
+<text transform="translate(1000,78) rotate(-90)" font-size="10" style="fill:rgb(31, 158, 137)">SideScroller</text>
+<text transform="translate(600,11)" font-size="10" style="fill:rgb(50, 182, 122)">MysteryDungeon</text>
+<text transform="translate(591,279)" font-size="10" style="fill:rgb(71, 19, 101)">JRPG</text>
+<text transform="translate(529,131)" font-size="10" style="fill:rgb(144, 215, 67)">Anime</text>
+<text transform="translate(968,138) rotate(-90)" font-size="10" style="fill:rgb(70, 8, 92)">HackandSlash</text>
+<text transform="translate(295,426)" font-size="10" style="fill:rgb(31, 151, 139)">Violent</text>
+<text transform="translate(803,558) rotate(-90)" font-size="10" style="fill:rgb(218, 227, 25)">DaybreakGameCompany</text>
+<text transform="translate(735,393)" font-size="10" style="fill:rgb(60, 80, 139)">BattleRoyale</text>
+<text transform="translate(713,210)" font-size="10" style="fill:rgb(55, 91, 141)">DarkFantasy</text>
+<text transform="translate(1084,36)" font-size="10" style="fill:rgb(205, 225, 29)">ActionRPG</text>
+<text transform="translate(160,470)" font-size="10" style="fill:rgb(57, 85, 140)">CharacterCustomization</text>
+</svg>
