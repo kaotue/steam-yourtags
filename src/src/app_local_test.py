@@ -1,12 +1,13 @@
 import awsgi
 import create_tags
 import create_wordcloud
+from CacheTable import CacheTable
 
 import re
 
 def get_tags(steamid, language):
     print(f'{steamid=}')
-    tags = create_tags.run(steamid, language)
+    tags = create_tags.run(steamid, language, CacheTable())
     if not tags:
         return 'not found'
     return create_wordcloud.run(tags)

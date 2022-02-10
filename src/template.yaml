@@ -23,12 +23,14 @@ Resources:
       Handler: app.lambda_handler
       Runtime: python3.9
       Architectures: [x86_64]
-      Timeout: 60
+      Timeout: 120
       MemorySize: 1024
       Environment:
         Variables:
           STEAM_API_KEY: !Ref SteamApiKey
           STEAM_ID: !Ref SteamId
+      Policies:
+      - AmazonDynamoDBFullAccess
       Events:
         ApiRoot:
           Type: Api
@@ -54,6 +56,40 @@ Resources:
       DomainName: !Ref DomainName
       ApiId: !Ref SteamYourTagsApi
       Stage: !Ref SteamYourTagsApi.Stage
+  DynamoDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions: 
+      - AttributeName: "column"
+        AttributeType: "S"
+      - AttributeName: "data"
+        AttributeType: "S"
+      - AttributeName: "id"
+        AttributeType: "N"
+      TableName: "steam_games"
+      KeySchema: 
+      - AttributeName: "id"
+        KeyType: "HASH"
+      - AttributeName: "column"
+        KeyType: "RANGE"
+      ProvisionedThroughput: 
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+      GlobalSecondaryIndexes: 
+      - IndexName: "column-data-index"
+        KeySchema: 
+        - AttributeName: "column"
+          KeyType: "HASH"
+        - AttributeName: "data"
+          KeyType: "RANGE"
+        Projection: 
+          ProjectionType: "ALL"
+        ProvisionedThroughput: 
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+      TimeToLiveSpecification: 
+        AttributeName: "TTL"
+        Enabled: true
 Outputs:
   SteamYourTagsApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"

@@ -1,6 +1,7 @@
 import awsgi
 import create_tags
 import create_wordcloud
+from CacheTable import CacheTable
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
@@ -11,10 +12,11 @@ def index():
 
 @app.route('/yourtags', methods=['GET'])
 def get_tags():
+    print(f'{request.args=}')
     if not (steamid := request.args.get('steamid')):
         return 'steamid is required'
     language = request.args.get('language', 'en')
-    tags = create_tags.run(steamid, language)
+    tags = create_tags.run(steamid, language, CacheTable())
     if not tags:
         return 'not found'
 
