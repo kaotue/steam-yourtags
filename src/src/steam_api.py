@@ -29,6 +29,7 @@ class GamePageDownloader:
         self.language: str = language
         self.htmls: list[str] = []
         self.results: list[SteamGame] = []
+        self.cookies = {'birthtime': '568022401'}
 
     def run(self):
         loop = asyncio.new_event_loop()
@@ -74,5 +75,5 @@ class GamePageDownloader:
             'Accept-Language': self.language
         }
         url = f'https://store.steampowered.com/app/{appid}/'
-        async with session.get(url, headers=headers) as response:
+        async with session.get(url, headers=headers, cookies=self.cookies) as response:
             return await response.text()
