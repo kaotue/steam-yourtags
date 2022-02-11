@@ -1,15 +1,11 @@
-import os
 import datetime
 import boto3
 from boto3.dynamodb.conditions import Key, Attr
 
-CACHE_TABLE_NAME = os.environ.get('CACHE_TABLE_NAME', 'steam_games')
-TTL_DAYS = os.environ.get('TTL_DAYS', 1)
-
 class CacheTable:
-    def __init__(self):
-        self.table = boto3.resource('dynamodb').Table(CACHE_TABLE_NAME)
-        self.ttl = datetime.datetime.now() + datetime.timedelta(days=TTL_DAYS)
+    def __init__(self, table_name, ttl_days):
+        self.table = boto3.resource('dynamodb').Table(table_name)
+        self.ttl_days = ttl_days
 
     def get_item(self, id):
         options = {
@@ -37,6 +33,7 @@ class CacheTable:
         return response.get('Item')
 
     def put_item(self, id, data):
+        ttl = datetime.datetime.now() + datetime.timedelta(days=self.ttl_days)
         with self.table.batch_writer() as batch:
             for k, v in data.items():
                 if not v:

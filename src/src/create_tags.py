@@ -6,9 +6,6 @@ import copy
 from SteamGame import SteamGame
 from calc_time import calc_time
 
-EXCEPT_TAGS = os.environ.get('EXCEPT_TAGS', '').split(',')
-print(f'{EXCEPT_TAGS=}')
-
 @calc_time
 def run(steamid: str, language: str, cache_table: object) -> str:
     ids = steam_api.download_owned_games(steamid)
@@ -48,8 +45,8 @@ def run(steamid: str, language: str, cache_table: object) -> str:
 def get_games_from_cache(ids: list[int], language: str, cache_table: object) -> list[SteamGame]:
     results = []
     for id in ids:
-        if cache_table.get_data(id, 'tags_' + language):
-            d = cache_table.get_item(id)
+        d = cache_table.get_item(id)
+        if d and d.get('tags_' + language):
             game = SteamGame(**d)
             results.append(game)
     return results

@@ -3,11 +3,13 @@ import create_tags
 import create_wordcloud
 from CacheTable import CacheTable
 
-import re
+CACHE_TABLE = CacheTable(
+    os.environ.get('CACHE_TABLE_NAME', 'steam_games'),
+    os.environ.get('TTL_DAYS', 1))
 
 def get_tags(steamid, language):
     print(f'{steamid=}')
-    tags = create_tags.run(steamid, language, CacheTable())
+    tags = create_tags.run(steamid, language, CACHE_TABLE)
     if not tags:
         return 'not found'
     return create_wordcloud.run(tags)

@@ -1,6 +1,6 @@
 from wordcloud import WordCloud
 
-def run(text: str):
+def run(text: str, stopwords: list[str]=None):
     options = {
         'max_font_size': 120,
         'min_font_size': 10,
@@ -11,7 +11,8 @@ def run(text: str):
         'regexp': None,
         'collocations': False,
         'include_numbers': True,
-        'normalize_plurals': False
+        'normalize_plurals': False,
+        'stopwords': stopwords
     }
 
     return WordCloud(**options).generate(text).to_svg()
