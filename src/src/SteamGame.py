@@ -6,7 +6,7 @@ class SteamGame:
         self.tags_ja: list[str] = tags_ja
         self.release_year: str = release_year
     
-    def get_wordcloud_str(self):
+    def get_keywords(self):
         ret = []
         if self.developers:
             ret.extend(self.developers)
@@ -15,6 +15,6 @@ class SteamGame:
         if self.tags_ja:
             ret.extend(self.tags_ja)
         if self.release_year:
-            ret.extend(self.release_year)
+            ret.extend([self.release_year for x in range(3)])
         ret = [x.replace(' ', '') for x in ret]
-        return ' '.join(ret)
+        return ret

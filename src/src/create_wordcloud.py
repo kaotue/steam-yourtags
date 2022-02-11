@@ -8,7 +8,7 @@ def run(text: str, stopwords: list[str]=None):
         'prefer_horizontal': 0.9,
         'width': 1200,
         'height': 600,
-        'regexp': None,
+        'regexp': r"\w[\w'#+-]+",
         'collocations': False,
         'include_numbers': True,
         'normalize_plurals': False,

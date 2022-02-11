@@ -3,6 +3,8 @@ import time
 import os
 import steam_api
 import copy
+import collections
+from itertools import chain
 from SteamGame import SteamGame
 from calc_time import calc_time
 
@@ -38,7 +40,8 @@ def run(steamid: str, language: str, cache_table: object) -> str:
             game.tags_en = None
             
     print(f'{len(results)=}')
-    ret = [x.get_wordcloud_str() for x in results]
+    ret = list(chain.from_iterable([x.get_keywords() for x in results]))
+    # print(f'{collections.Counter(ret)=}')
     return ' '.join(ret)
 
 @calc_time
