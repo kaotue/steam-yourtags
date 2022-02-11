@@ -34,7 +34,12 @@ def run(steamid: str, language: str, cache_table: object) -> str:
         results.extend(games_from_cache)
     if games_from_steam:
         results.extend(games_from_steam)
-
+    for game in results:
+        if language == 'en':
+            game.tags_ja = None
+        else:
+            game.tags_en = None
+            
     print(f'{len(results)=}')
     ret = [x.get_wordcloud_str() for x in results]
     return ' '.join(ret)
