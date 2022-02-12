@@ -62,8 +62,8 @@ Resources:
       MethodSettings:
       - HttpMethod: '*'
         ResourcePath: '/*'
-        ThrottlingBurstLimit: 10
-        ThrottlingRateLimit: 10
+        ThrottlingBurstLimit: 3
+        ThrottlingRateLimit: 3
   SteamYourTagsApiGatewaBasePathMapping:
     Type: AWS::ApiGatewayV2::ApiMapping
     Properties:
