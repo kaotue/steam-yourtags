@@ -8,7 +8,7 @@ from flask import Flask, request, render_template, send_file
 
 CACHE_TABLE = CacheTable(
     os.environ.get('CACHE_TABLE_NAME', 'steam_games'),
-    os.environ.get('TTL_DAYS', 1)
+    os.environ.get('TTL_DAYS', 7)
 )
 STRAGE = Strage(
     os.environ.get('STRAGE_BUCKET_NAME', 'steam-yourtags-bucket')

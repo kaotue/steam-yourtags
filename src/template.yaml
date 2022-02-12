@@ -59,6 +59,11 @@ Resources:
       - "*~1*"
       - image~1png
       - image~1svg+xml
+      MethodSettings:
+      - HttpMethod: '*'
+        ResourcePath: '/*'
+        ThrottlingBurstLimit: 10
+        ThrottlingRateLimit: 10
   SteamYourTagsApiGatewaBasePathMapping:
     Type: AWS::ApiGatewayV2::ApiMapping
     Properties:
