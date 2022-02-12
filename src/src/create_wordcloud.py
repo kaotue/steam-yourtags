@@ -1,7 +1,7 @@
 from wordcloud import WordCloud
 import uuid
 
-def run(text: str, outputtype: str='png', stopwords: list[str]=None) -> str:
+def run(text: str, outputtype: str, font_path: str, stopwords: list[str]) -> str:
     options = {
         'max_font_size': 120,
         'min_font_size': 10,
@@ -13,7 +13,8 @@ def run(text: str, outputtype: str='png', stopwords: list[str]=None) -> str:
         'collocations': False,
         'include_numbers': True,
         'normalize_plurals': False,
-        'stopwords': stopwords
+        'stopwords': stopwords,
+        'font_path': font_path
     }
 
     if outputtype == 'png':

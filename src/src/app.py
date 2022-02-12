@@ -13,7 +13,8 @@ CACHE_TABLE = CacheTable(
 STRAGE = Strage(
     os.environ.get('STRAGE_BUCKET_NAME', 'steam-yourtags-bucket')
 )
-STOPWORDS = os.environ.get('STOPWORDS', 'Singleplayer,Multiplayer,シングルプレイヤー,マルチプレイヤー'.split(','))
+WC_FONT_PATH = os.environ.get('WC_FONT_PATH', './fonts/NotoSansJP-Regular.otf')
+WC_STOPWORDS = os.environ.get('WC_STOPWORDS', 'Singleplayer,Multiplayer,シングルプレイヤー,マルチプレイヤー'.split(','))
 
 app = Flask(__name__)
 
@@ -38,7 +39,7 @@ def get_tags():
         return 'not found'
 
     # create wordcloud
-    file_path = create_wordcloud.run(tags, outputtype, STOPWORDS)
+    file_path = create_wordcloud.run(tags, outputtype, WC_FONT_PATH, WC_STOPWORDS)
 
     # upload to s3
     STRAGE.upload(file_path)
