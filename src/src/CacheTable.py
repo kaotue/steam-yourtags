@@ -48,7 +48,7 @@ class CacheTable:
                             'column': k,
                             'data': '_',
                             'data_': v,
-                            'TTL': int(self.ttl.timestamp())
+                            'TTL': int(ttl.timestamp())
                         }
                     )
                 else:
@@ -57,6 +57,6 @@ class CacheTable:
                             'id': id,
                             'column': k,
                             'data': str(v),
-                            'TTL': int(self.ttl.timestamp())
+                            'TTL': int(ttl.timestamp())
                         }
                     )

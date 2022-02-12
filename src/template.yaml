@@ -14,6 +14,9 @@ Parameters:
   SteamId:
     Type: String
     Default: defaultsteamidvalue
+  StrageBucketName:
+    Type: String
+    Default: steam-yourtags-bucket
 Resources:
   SteamYourTagsApiFunction:
     Type: AWS::Serverless::Function
@@ -29,8 +32,10 @@ Resources:
         Variables:
           STEAM_API_KEY: !Ref SteamApiKey
           STEAM_ID: !Ref SteamId
+          STRAGE_BUCKET_NAME: !Ref StrageBucketName
       Policies:
       - AmazonDynamoDBFullAccess
+      - AmazonS3FullAccess
       Events:
         ApiRoot:
           Type: Api
@@ -50,6 +55,10 @@ Resources:
       StageName: Prod
       OpenApiVersion: 3.0.2
       Name: steam-yourtags-api
+      BinaryMediaTypes:
+      - "*~1*"
+      - image~1png
+      - image~1svg+xml
   SteamYourTagsApiGatewaBasePathMapping:
     Type: AWS::ApiGatewayV2::ApiMapping
     Properties:
@@ -90,6 +99,10 @@ Resources:
       TimeToLiveSpecification: 
         AttributeName: "TTL"
         Enabled: true
+  S3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: !Ref StrageBucketName
 Outputs:
   SteamYourTagsApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
