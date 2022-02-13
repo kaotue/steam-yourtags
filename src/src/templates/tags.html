@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes">
+<title>Steam YourTags</title>
+<style type="text/css">
+html {
+  font-size: 28px;
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans', 'Meiryo';
+}
+body *{
+  text-align: center;
+}
+input[type="text"] {
+  height: 80px;
+  width: 90%;
+  font-size: 160%;
+}
+::placeholder {
+  font-size: 50%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+svg {
+  max-width: 100%;
+  height: auto;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+</style>
+</head>
+
+<body>
+<h1><a href="/" title="Steam YourTags">Steam YourTags</a></h1>
+<p>
+{{tags_html | safe}}
+</p>
+</body>
+</html>

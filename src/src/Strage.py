@@ -1,5 +1,7 @@
 import boto3
 import os
+import io
+import base64
 
 class Strage:
     def __init__(self, bucket_name):
@@ -11,3 +13,8 @@ class Strage:
 
     def download(self, key):
         self.bucket.download_file(key, key)
+
+    def download_bytesio(self ,key):
+        b = io.BytesIO()
+        self.bucket.download_fileobj(key, b)
+        return b

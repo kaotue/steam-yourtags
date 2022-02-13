@@ -1,10 +1,12 @@
 import awsgi
 import os
+import base64
+import uuid
 import create_tags
 import create_wordcloud
 from CacheTable import CacheTable
 from Strage import Strage
-from flask import Flask, request, render_template, send_file
+from flask import Flask, request, render_template, jsonify, redirect
 
 CACHE_TABLE = CacheTable(
     os.environ.get('CACHE_TABLE_NAME', 'steam_games'),
@@ -22,32 +24,43 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/yourtags', methods=['GET'])
-def get_tags():
+@app.route('/yourtags/<tagsname>', methods=['GET'])
+def get_tags(tagsname):
+    if '.svg' in tagsname:
+        b = STRAGE.download_bytesio(tagsname)
+        tags_html = b.getvalue().decode('utf-8')
+        return render_template('tags.html', tags_html=tags_html)
+    else:
+        b = STRAGE.download_bytesio(tagsname)
+        b64 = base64.b64encode(b.getvalue()).decode("utf-8")
+        tags_b64 = f'data:image/png;base64,{b64}'
+        tags_html = f'<img src={tags_b64}>'
+        return render_template('tags.html', tags_html=tags_html)
 
+@app.route('/yourtags', methods=['GET'])
+def post_tags():
     # get params
     print(f'{request.args=}')
-    steamid = request.args.get('steamid')
-    if not steamid:
-        return 'steamid is required'
-    language = request.args.get('language', 'en')
-    outputtype = request.args.get('outputtype', 'png')
+    if not (steamid := request.args.get('steamid')):
+        return jsonify({'message': 'steamid is required'}), 400
+    if (language := request.args.get('language')) not in ['en', 'ja']:
+        return jsonify({'message': 'invalid language'}), 400
+    if (outputtype := request.args.get('outputtype')) not in ['png','svg']:
+        return jsonify({'message': 'invalid outputtype'}), 400
 
     # create tags
     tags = create_tags.run(steamid, language, CACHE_TABLE)
     if not tags:
-        return 'not found'
+        return jsonify({'message': 'tags not found'}), 400
 
     # create wordcloud
-    file_path = create_wordcloud.run(tags, outputtype, WC_FONT_PATH, WC_STOPWORDS)
+    file_name = f'{uuid.uuid4()}.{outputtype}'
+    file_path = create_wordcloud.run(file_name, tags, outputtype, WC_FONT_PATH, WC_STOPWORDS)
 
     # upload to s3
     STRAGE.upload(file_path)
 
-    if outputtype == 'svg':
-        return send_file(file_path, mimetype='image/svg+xml')
-    else:
-        return send_file(file_path, mimetype=f'image/{outputtype}')
+    return redirect(f'./yourtags/{file_name}')
 
 def lambda_handler(event, context):
     return awsgi.response(app, event, context, base64_content_types={'image/png', 'image/svg+xml'})

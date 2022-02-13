@@ -1,7 +1,7 @@
 from wordcloud import WordCloud
 import uuid
 
-def run(text: str, outputtype: str, font_path: str, stopwords: list[str]) -> str:
+def run(file_name: str, text: str, outputtype: str, font_path: str, stopwords: list[str]) -> str:
     options = {
         'max_font_size': 120,
         'min_font_size': 10,
@@ -18,12 +18,12 @@ def run(text: str, outputtype: str, font_path: str, stopwords: list[str]) -> str
     }
 
     if outputtype == 'png':
-        file_path = f'/tmp/{uuid.uuid4()}.png'
+        file_path = f'/tmp/{file_name}'
         WordCloud(**options).generate(text).to_file(file_path)
         return file_path
     else:
         svg_text = WordCloud(**options).generate(text).to_svg()
-        file_path = f'/tmp/{uuid.uuid4()}.svg'
+        file_path = f'/tmp/{file_name}'
         with open(file_path, 'w') as f:
             f.write(svg_text)
         return file_path
