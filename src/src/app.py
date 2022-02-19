@@ -13,8 +13,9 @@ CACHE_TABLE = CacheTable(
     os.environ.get('TTL_DAYS', 7)
 )
 STRAGE = Strage(
-    os.environ.get('STRAGE_BUCKET_NAME', 'steam-yourtags-bucket')
+    os.environ.get('STRAGE', 'steam-yourtags-bucket')
 )
+STEAM_STRAGE_DOMAIN_NAME = os.environ.get('STEAM_STRAGE_DOMAIN_NAME', 'sample.com')
 WC_FONT_PATH = os.environ.get('WC_FONT_PATH', './fonts/NotoSansJP-Regular.otf')
 WC_STOPWORDS = os.environ.get('WC_STOPWORDS', 'Singleplayer,Multiplayer,シングルプレイヤー,マルチプレイヤー'.split(','))
 
@@ -24,24 +25,14 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/yourtags/<tagsname>', methods=['GET'])
+@app.route('/tags/<tagsname>', methods=['GET'])
 def get_tags(tagsname):
     share_url = request.url
     print(f'{share_url=}')
-    if '.svg' in tagsname:
-        b = STRAGE.download_bytesio(tagsname)
-        b64 = base64.b64encode(b.getvalue()).decode("utf-8")
-        tags_b64 = f'data:image/svg+xml;base64,{b64}'
-        tags_html = f'<img src={tags_b64}>'
-        return render_template('tags.html', tags_html=tags_html, share_url=share_url)
-    else:
-        b = STRAGE.download_bytesio(tagsname)
-        b64 = base64.b64encode(b.getvalue()).decode("utf-8")
-        tags_b64 = f'data:image/png;base64,{b64}'
-        tags_html = f'<img src={tags_b64}>'
-        return render_template('tags.html', tags_html=tags_html, share_url=share_url)
+    tags_src = f'https://{STEAM_STRAGE_DOMAIN_NAME}/{tagsname}'
+    return render_template('tags.html', tags_html=tags_src, share_url=share_url)
 
-@app.route('/yourtags', methods=['GET'])
+@app.route('/tags', methods=['GET'])
 def post_tags():
     # get params
     print(f'{request.args=}')
@@ -49,7 +40,7 @@ def post_tags():
         return jsonify({'message': 'steamid is required'}), 400
     if (language := request.args.get('language')) not in ['en', 'ja']:
         return jsonify({'message': 'invalid language'}), 400
-    if (outputtype := request.args.get('outputtype')) not in ['png','svg']:
+    if (outputtype := request.args.get('outputtype')) not in ['png']:
         return jsonify({'message': 'invalid outputtype'}), 400
 
     # create tags
@@ -64,7 +55,7 @@ def post_tags():
     # upload to s3
     STRAGE.upload(file_path)
 
-    return redirect(f'./yourtags/{file_name}')
+    return redirect(f'./tags/{file_name}')
 
 def lambda_handler(event, context):
     return awsgi.response(app, event, context, base64_content_types={'image/png', 'image/svg+xml'})

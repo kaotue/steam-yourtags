@@ -14,14 +14,8 @@ function download() {
   } else if (document.getElementById("language_ja").checked) {
     language = "ja";
   }
-  var outputtype = "";
-  if (document.getElementById("outputtype_png").checked) {
-    outputtype = "png";
-  } else if (document.getElementById("outputtype_svg").checked) {
-    outputtype = "svg";
-  }
-  parameters = "steamid=" + text.value + "&language=" + language + "&outputtype=" + outputtype;
-  location.href = "/yourtags?" + parameters
+  parameters = "steamid=" + text.value + "&language=" + language + "&outputtype=png";
+  location.href = "/tags?" + parameters
 }
 </script>
 <style type="text/css">
@@ -54,10 +48,6 @@ input[type="text"] {
   <p>
     <input type="radio" id="language_en" name="language" value="en" checked><label for="language_en"> English</label>
     <input type="radio" id="language_ja" name="language" value="ja"><label for="language_ja"> Japanese</label>
-  </p>
-  <p>
-    <input type="radio" id="outputtype_png" name="outputtype" value="png" checked><label for="outputtype_png"> png</label>
-    <input type="radio" id="outputtype_svg" name="outputtype" value="svg"><label for="outputtype_svg"> svg</label>
   </p>
 <div>
   <a id="downloadLink" href="javascript:download()">DOWNLOAD</a><br/>

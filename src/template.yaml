@@ -17,6 +17,9 @@ Parameters:
   StrageBucketName:
     Type: String
     Default: steam-yourtags-bucket
+  SteamStrageDomainName:
+    Type: String
+    Default: defaultsteamstragedomainname
 Resources:
   SteamYourTagsApiFunction:
     Type: AWS::Serverless::Function
@@ -33,6 +36,7 @@ Resources:
           STEAM_API_KEY: !Ref SteamApiKey
           STEAM_ID: !Ref SteamId
           STRAGE_BUCKET_NAME: !Ref StrageBucketName
+          STEAM_STRAGE_DOMAIN_NAME: !Ref SteamStrageDomainName
       Policies:
       - AmazonDynamoDBFullAccess
       - AmazonS3FullAccess
