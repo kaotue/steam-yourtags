@@ -15,6 +15,6 @@ class SteamGame:
         if self.tags_ja:
             ret.extend(self.tags_ja)
         if self.release_year:
-            ret.extend([self.release_year for x in range(3)])
+            ret.append(str(self.release_year)[:3] + '0s')
         ret = [x.replace(' ', '') for x in ret]
         return ret

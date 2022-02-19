@@ -26,16 +26,20 @@ def index():
 
 @app.route('/yourtags/<tagsname>', methods=['GET'])
 def get_tags(tagsname):
+    share_url = request.url
+    print(f'{share_url=}')
     if '.svg' in tagsname:
         b = STRAGE.download_bytesio(tagsname)
-        tags_html = b.getvalue().decode('utf-8')
-        return render_template('tags.html', tags_html=tags_html)
+        b64 = base64.b64encode(b.getvalue()).decode("utf-8")
+        tags_b64 = f'data:image/svg+xml;base64,{b64}'
+        tags_html = f'<img src={tags_b64}>'
+        return render_template('tags.html', tags_html=tags_html, share_url=share_url)
     else:
         b = STRAGE.download_bytesio(tagsname)
         b64 = base64.b64encode(b.getvalue()).decode("utf-8")
         tags_b64 = f'data:image/png;base64,{b64}'
         tags_html = f'<img src={tags_b64}>'
-        return render_template('tags.html', tags_html=tags_html)
+        return render_template('tags.html', tags_html=tags_html, share_url=share_url)
 
 @app.route('/yourtags', methods=['GET'])
 def post_tags():
