@@ -3,7 +3,7 @@ import uuid
 
 def run(file_name: str, text: str, outputtype: str, font_path: str, stopwords: list[str]) -> str:
     options = {
-        'max_font_size': 120,
+        'max_font_size': 110,
         'min_font_size': 10,
         'font_step': 1,
         'prefer_horizontal': 0.9,

@@ -30,7 +30,7 @@ def get_tags(tagsname):
     share_url = request.url
     print(f'{share_url=}')
     tags_src = f'https://{STEAM_STRAGE_DOMAIN_NAME}/{tagsname}'
-    return render_template('tags.html', tags_html=tags_src, share_url=share_url)
+    return render_template('tags.html', tags_src=tags_src, share_url=share_url)
 
 @app.route('/tags', methods=['GET'])
 def post_tags():
